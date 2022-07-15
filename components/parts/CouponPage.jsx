@@ -1,8 +1,9 @@
-import { Flex, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import FirCoupon from "../../pages/assets/FirCoupon";
-import SecCoupon from "../../pages/assets/SecCoupon";
+import Image from "next/image";
+import FirCoupon from "../../pages/assets/Coupon01.png";
+import SecCoupon from "../../pages/assets/Coupon02.png";
 
 const Coupon = ({ setCouponPageOpen }) => {
   return (
@@ -11,9 +12,13 @@ const Coupon = ({ setCouponPageOpen }) => {
         使えるクーポン
       </Text>
 
-      <FirCoupon />
+      <Box pb="30px">
+        <Image src={FirCoupon} alt="firCoupon" />
+      </Box>
 
-      <SecCoupon />
+      <Box pb="10px">
+        <Image src={SecCoupon} ale="secCoupon" />
+      </Box>
 
       <Flex
         px="16px"

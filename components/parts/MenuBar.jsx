@@ -16,7 +16,7 @@ const MenuBar = () => {
       m="auto"
       align="center"
       justify="space-between"
-      pt="20px"
+      pt="10px"
     >
       <Link href="/About">
         <FontAwesomeIcon icon={faCircleQuestion} color="#ED7C0A" width="30px" />
