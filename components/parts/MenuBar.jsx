@@ -10,25 +10,18 @@ import Logo from "../../pages/assets/Logo";
 
 const MenuBar = () => {
   return (
-    <Flex
-      w="90vw"
-      h="10vh"
-      m="auto"
-      align="center"
-      justify="space-between"
-      pt="10px"
-    >
-      <Link href="/About">
+    <Flex w="90vw" h="10vh" m="auto" align="center" justify="center" pt="10px">
+      {/* <Link href="/About">
         <FontAwesomeIcon icon={faCircleQuestion} color="#ED7C0A" width="30px" />
-      </Link>
+      </Link> */}
 
       <Link href="/">
         <Logo />
       </Link>
 
-      <Link href="/RubbishPage">
+      {/* <Link href="/RubbishPage">
         <FontAwesomeIcon icon={faMapLocationDot} color="#ED7C0A" width="30px" />
-      </Link>
+      </Link> */}
     </Flex>
   );
 };

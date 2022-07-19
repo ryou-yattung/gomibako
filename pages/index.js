@@ -3,7 +3,7 @@ import Head from "next/head";
 import Map from "../components/parts/Map";
 import MenuBar from "../components/parts/MenuBar";
 
-export default function Home() {
+export default function Home(data) {
   return (
     <Box h="100vh" overflow="hidden">
       <Head>
@@ -13,7 +13,14 @@ export default function Home() {
       </Head>
 
       <MenuBar />
-      <Map />
+      <Map gomiData={data} />
     </Box>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(`http://10.11.11.77/json/gomi.json`);
+  const data = await res.json();
+
+  return { props: { data } };
 }

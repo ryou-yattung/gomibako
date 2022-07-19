@@ -6,7 +6,7 @@ import Locals from "../elements/Locals";
 import Tag from "../elements/Tag";
 import CouponPage from "./CouponPage";
 
-const Map = () => {
+const Map = ({ gomiData }) => {
   const [viewState, setViewState] = React.useState({
     latitude: 34.706542021068344,
     longitude: 135.50324831854138,
@@ -30,7 +30,7 @@ const Map = () => {
         <Coupon onClick={() => setCouponPageOpen(true)} />
         <Tag />
 
-        <Locals />
+        <Locals gomiAmount={gomiData.data.A} />
       </Box>
 
       <Box

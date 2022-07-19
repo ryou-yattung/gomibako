@@ -15,26 +15,43 @@ import MapLogo from "../../pages/assets/MapLogo";
 import RubbishBin from "../../pages/assets/RubbishBin";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-const Locals = () => {
+const Locals = ({ gomiAmount }) => {
+  const [gomiColor, setGomiColor] = useState("");
+
+  useEffect(() => {
+    if (gomiAmount == 0) {
+      setGomiColor("#c8bcb9");
+    } else if (gomiAmount == 25) {
+      setGomiColor("#1DB577");
+    } else if (gomiAmount == 50) {
+      setGomiColor("#edc70a");
+    } else if (gomiAmount == 75) {
+      setGomiColor("#ED7C0A");
+    } else {
+      setGomiColor("#ed3f0a");
+    }
+  }, [gomiAmount]);
+
+  console.log(gomiColor);
   return (
     <Link href="/RubbishPage">
       <Flex
         align="center"
         justify="space-around"
         w="300px"
-        py="20px"
+        py="15px"
         bg="white"
         borderRadius="20px"
       >
         <Box>
-          <Text mb="3px" fontSize="18px" fontWeight="semibold">
+          <Text fontSize="18px" fontWeight="semibold">
             1つ目のゴミ箱
           </Text>
 
-          <Flex align="center" mb="8px">
+          <Flex align="center" my="5px">
             <MapLogo />
             <Text ml="5px" opacity="50%" fontSize="12px">
               神奈川県横浜市
@@ -62,18 +79,21 @@ const Locals = () => {
           </Flex>
         </Box>
 
-        <Center>
+        <VStack spacing={0}>
           <CircularProgress
-            value={80}
+            value={gomiAmount}
             thickness="8px"
-            size="80px"
-            color="#ED7C0A"
+            size="75px"
+            color={gomiColor}
           >
-            <CircularProgressLabel w="30px">
-              <RubbishBin width="30px" fill="#323333" />
+            <CircularProgressLabel w="25px">
+              <RubbishBin width="25px" gomiColor={gomiColor} />
             </CircularProgressLabel>
           </CircularProgress>
-        </Center>
+          <Text fontWeight="bold" pl="10px">
+            {gomiAmount}%
+          </Text>
+        </VStack>
       </Flex>
     </Link>
   );
