@@ -1,9 +1,11 @@
 import { Box } from "@chakra-ui/react";
+import Error from "next/error";
 import Head from "next/head";
 import Map from "../components/parts/Map";
 import MenuBar from "../components/parts/MenuBar";
+// import ErrorPage from "./404";
 
-export default function Home(data) {
+export default function Home({ data }) {
   return (
     <Box h="100vh" overflow="hidden">
       <Head>
@@ -21,6 +23,9 @@ export default function Home(data) {
 export async function getServerSideProps() {
   const res = await fetch(`http://10.11.11.77/json/gomi.json`);
   const data = await res.json();
+  console.log(data);
 
-  return { props: { data } };
+  return {
+    props: { data },
+  };
 }
