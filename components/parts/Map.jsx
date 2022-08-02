@@ -30,7 +30,7 @@ const Map = ({ gomiData }) => {
         <Coupon onClick={() => setCouponPageOpen(true)} />
         <Tag />
 
-        <Locals gomiAmount={gomiData.A} />
+        <Locals gomiAmount={0} />
       </Box>
 
       <Box

@@ -1,9 +1,8 @@
 import { Box } from "@chakra-ui/react";
-import Error from "next/error";
+
 import Head from "next/head";
 import Map from "../components/parts/Map";
 import MenuBar from "../components/parts/MenuBar";
-// import ErrorPage from "./404";
 
 export default function Home({ data }) {
   return (
@@ -15,17 +14,16 @@ export default function Home({ data }) {
       </Head>
 
       <MenuBar />
-      <Map gomiData={data} />
+      <Map gomiData={0} />
     </Box>
   );
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(`http://10.11.11.77/json/gomi.json`);
-  const data = await res.json();
-  console.log(data);
+// export async function getServerSideProps() {
+//   const res = await fetch(`http://10.11.11.77/json/gomi.json`);
+//   const data = await res.json();
 
-  return {
-    props: { data },
-  };
-}
+//   return {
+//     props: { data },
+//   };
+// }
